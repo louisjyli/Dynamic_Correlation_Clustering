@@ -6,9 +6,9 @@ def compute_cost(file_name, dict_cluster):
     TP = 0
     TF = 0
     for a_line in graph:
-        an_edge = a_line.split(" ")
+        an_edge = a_line.split(' ')
         s_node = an_edge[0]
-        d_node = an_edge[1]
+        d_node = an_edge[1].strip('\n')
         edge_set.add(s_node+' '+d_node)
     for node1 in dict_cluster.keys():
         for node2 in dict_cluster.keys():

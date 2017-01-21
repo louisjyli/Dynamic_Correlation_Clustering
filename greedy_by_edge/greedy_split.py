@@ -1,7 +1,10 @@
 __author__ = 'louisjyli'
-file_name = 'email-Eu-core.txt'
+file_name = 'CollegeMsg.txt'
 file=open(file_name,'r+')
 from cost import compute_cost
+import time
+
+start_time = time.time()
 
 dict_cluster = {}
 cluster_label = 0
@@ -9,7 +12,7 @@ cluster_label = 0
 for line in file:
     edge = line.split(' ')
     source_node = edge[0]
-    dest_node = edge[1]
+    dest_node = edge[1].strip('\n')
     if source_node not in dict_cluster and dest_node not in dict_cluster:
         dict_cluster[source_node] = cluster_label
         dict_cluster[dest_node] = cluster_label
@@ -25,3 +28,5 @@ for line in file:
 
 performance = compute_cost(file_name,dict_cluster)
 print('(Cost, Agreement, Gain) : ' + str(performance))
+print('Number of clusters : ' + str(cluster_label))
+print("---Execution Time : %s seconds ---" % (time.time() - start_time))
