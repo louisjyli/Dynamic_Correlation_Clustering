@@ -1,5 +1,5 @@
 __author__ = 'louisjyli'
-file_name = 'CollegeMsg.txt'
+file_name = 'er_1000_0.8.txt'
 file=open(file_name,'r+')
 from cost import compute_cost
 import time
